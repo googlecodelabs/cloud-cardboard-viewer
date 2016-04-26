@@ -1,0 +1,47 @@
+{
+  "name": "cardboard-viewer",
+  "description": "Angular2 and Node.js Cardboard video viewer.",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Google Inc.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/googlecodelabs/cloud-cardboard-viewer.git"
+  },
+  "scripts": {
+    "preinstall": "npm install typings",
+    "postinstall": "typings install",
+    "watch": "webpack --watch",
+    "prebuild": "rimraf dist",
+    "build": "webpack",
+    "prestart": "npm run build",
+    "server": "nodemon src/server/index.js",
+    "start": "npm run server",
+    "predebug": "npm run build",
+    "debug": "node --debug-brk src/server/index.js"
+  },
+  "contributors": [
+    "Jason Dobry <jason.dobry@gmail.com>"
+  ],
+  "dependencies": {
+    "@google/cloud-debug": "^0.8.1",
+    "@google/cloud-trace": "^0.5.1",
+    "angular2": "2.0.0-beta.16",
+    "body-parser": "^1.15.0",
+    "es6-promise": "^3.1.2",
+    "es6-shim": "^0.35.0",
+    "express": "^4.13.4",
+    "googleapis": "^5.2.1",
+    "nodemon": "^1.9.1",
+    "rimraf": "^2.5.2",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1",
+    "webpack": "^1.13.0",
+    "zone.js": "^0.6.12"
+  },
+  "engines": {
+    "node": "4.4.3"
+  }
+}
