@@ -13,8 +13,8 @@
     "preinstall": "npm install typings",
     "postinstall": "typings install",
     "build": "webpack",
-    "prestart": "npm run build"
-    "start": "node src/server/index.js"
+    "prestart": "npm run build",
+    "start": "node src/server/index.js",
     "serve": "node src/server/index.js"
   },
   "contributors": [
