@@ -12,10 +12,10 @@
   "scripts": {
     "preinstall": "npm install typings",
     "postinstall": "typings install",
-    "watch": "webpack --watch",
     "build": "webpack",
-    "prestart": "npm run build",
+    "prestart": "npm run build"
     "start": "node src/server/index.js"
+    "serve": "node src/server/index.js"
   },
   "contributors": [
     "Jason Dobry <jason.dobry@gmail.com>"
