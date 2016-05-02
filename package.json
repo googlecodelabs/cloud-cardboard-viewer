@@ -13,13 +13,9 @@
     "preinstall": "npm install typings",
     "postinstall": "typings install",
     "watch": "webpack --watch",
-    "prebuild": "rimraf dist",
     "build": "webpack",
     "prestart": "npm run build",
-    "server": "nodemon src/server/index.js",
-    "start": "npm run server",
-    "predebug": "npm run build",
-    "debug": "node --debug-brk src/server/index.js"
+    "start": "node src/server/index.js"
   },
   "contributors": [
     "Jason Dobry <jason.dobry@gmail.com>"
@@ -33,8 +29,6 @@
     "es6-shim": "^0.35.0",
     "express": "^4.13.4",
     "googleapis": "^5.2.1",
-    "nodemon": "^1.9.1",
-    "rimraf": "^2.5.2",
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
     "typings": "^0.8.1",

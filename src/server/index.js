@@ -72,8 +72,8 @@ app.use(function (err, req, res) {
 
 if (module === require.main) {
   // Start the server
-  const server = app.listen(process.env.port || 8080, function () {
-    const port = server.address().port;
+  var server = app.listen(process.env.port || 8080, function () {
+    var port = server.address().port;
 
     console.log('App listening on port %s', port);
     console.log('Press Ctrl+C to quit.');
