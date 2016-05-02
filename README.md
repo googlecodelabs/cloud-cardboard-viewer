@@ -1,17 +1,6 @@
-# cardboard-viewer
+# cloud-cardboard-viewer
 
-## Run locally
-
-1. `git clone https://github.com/googlecodelabs/cloud-cardboard-viewer.git`
-1. `cd cardboard-viewer`
-1. `npm install`
-1. `npm start`
-
-View the app at http://localhost:8080.
-
-## Deploy to Google Cloud Platform
-
-### Prepare a project
+## Prepare a project
 
 1. Create a [Google Account](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2F&ltmpl=api) if you don't have one
 1. Sign up for the [free trial](https://console.cloud.google.com/freetrial)
@@ -21,18 +10,27 @@ View the app at http://localhost:8080.
   1. Give your project a name
   1. Make note of the projectId, which might be different from the project name. The projectId is used in commands and configurations.
 1. [Enable billing](https://console.cloud.google.com/project/_/settings) for your project
+1. Enable the [Trace API](https://console.developers.google.com/project/_/apiui/apiview/trace/overview).
+1. Enable the [YouTube Data v3 API](https://console.developers.google.com/project/_/apiui/apiview/youtube/overview).
+1. Create an API Key.
+
+## Run locally
+
+1. `git clone https://github.com/googlecodelabs/cloud-cardboard-viewer.git`
+1. `cd cloud-cardboard-viewer`
+1. `npm install`
+1. `API_KEY=<your-api-key> npm start`
+
+View the app at http://localhost:8080.
+
+## Deploy to Google Cloud Platform
 
 ### Deploy your local app
 
-1. `cardboard-viewer`
+1. Add the `GCLOUD_PROJECT` and `API_KEY` environment variables to the `app.yaml` file.
 1. `gcloud preview app deploy`
 
-First deployment may take awhile as your load balancer needs to be created.
-
-### Deply from image
-
-1. `cd cardboard-viewer`
-1. `gcloud preview app deploy --image-url gcr.io/cardbard-viewer`
+First deployment may take a while as your load balancer needs to be created.
 
 # License
 
