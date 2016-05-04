@@ -28,6 +28,12 @@ manual_scaling:
 #  cpu_utilization:
 #    target_utilization: 0.5
 
+handlers:
+- url: /.*
+  script: IGNORED
+  # Always use https
+  secure: always
+
 # Temporary setting to keep gcloud from uploading node_modules
 skip_files:
 - ^node_modules$

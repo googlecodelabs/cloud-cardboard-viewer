@@ -58,7 +58,7 @@ export class Video {
       </div>
       <div *ngIf="show">
         <iframe width="420" height="315" [id]="video.id.videoId"
-          [src]="'http://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0'"
+          [src]="'https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0'"
           allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen"
           msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen"
           webkitallowfullscreen="webkitallowfullscreen">
