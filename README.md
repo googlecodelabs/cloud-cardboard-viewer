@@ -37,3 +37,5 @@ First deployment may take a while as your load balancer needs to be created.
 Apache Version 2.0
 
 See [LICENSE](LICENSE).
+
+*This is not an official Google product*
