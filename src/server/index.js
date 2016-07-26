@@ -53,7 +53,7 @@ app.get('/search', function (req, res, next) {
     q: req.query.q
   }, function (err, result) {
     if (err) {
-      return next('Something broke!');
+      return next(new Error('Search error!'));
     }
     res.json(result);
   });
@@ -67,7 +67,7 @@ app.use('*', function (req, res) {
 
 // Basic error handler
 app.use(function (err, req, res) {
-  res.status(500).send('Something broke!');
+  res.status(500).send((err && err.message) || 'Something broke!');
 });
 
 if (module === require.main) {

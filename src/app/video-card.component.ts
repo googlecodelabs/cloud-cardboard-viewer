@@ -13,7 +13,8 @@
 
 'use strict';
 
-import { Component, Input } from 'angular2/core';
+import { Component, Input } from '@angular/core';
+import { DomSanitizationService, SafeResourceUrl } from '@angular/platform-browser';
 
 export class Video {
   id: {
@@ -58,7 +59,7 @@ export class Video {
       </div>
       <div *ngIf="show">
         <iframe width="420" height="315" [id]="video.id.videoId"
-          [src]="'https://www.youtube.com/embed/' + video.id.videoId + '?autoplay=0'"
+          [src]="updateVideoUrl(video)"
           allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen"
           msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen"
           webkitallowfullscreen="webkitallowfullscreen">
@@ -69,6 +70,18 @@ export class Video {
   `
 })
 export class VideoCard {
+  constructor(private sanitizer: DomSanitizationService) {
+    this.sanitizer = sanitizer;
+  }
   @Input() video: Video
   show: boolean = false
+  videoUrl: SafeResourceUrl
+  updateVideoUrl(video: Video) {
+    // Appending an ID to a YouTube URL is safe.
+    // Always make sure to construct SafeValue objects as
+    // close as possible to the input data, so
+    // that it's easier to check if the value is safe.
+    const dangerousVideoUrl = `https://www.youtube.com/embed/${video.id.videoId}?autoplay=0`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(dangerousVideoUrl);
+  }
 }

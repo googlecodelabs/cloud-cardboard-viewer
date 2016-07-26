@@ -13,8 +13,8 @@
 
 'use strict';
 
-import { Component, Directive, ElementRef, Renderer } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component, Directive, ElementRef, Renderer } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { About } from './about.component';
 import { Home } from './home.component';
 
@@ -23,7 +23,6 @@ import { Home } from './home.component';
 })
 export class XLarge {
   constructor(element: ElementRef, renderer: Renderer) {
-    // we must interact with the dom through Renderer for webworker/server to see the changes
     renderer.setElementStyle(element.nativeElement, 'fontSize', 'x-large');
   }
 }
@@ -43,8 +42,8 @@ export class XLarge {
   <div>
     <div id="sidebar">
       <nav>
-        <a [routerLink]=" ['./Home'] ">Home</a>
-        <a [routerLink]=" ['./About'] ">About</a>
+        <a [routerLink]=" ['./'] ">Home</a>
+        <a [routerLink]=" ['./about'] ">About</a>
       </nav>
     </div>
     <div class="mui-appbar" id="main-bar">
@@ -66,9 +65,4 @@ export class XLarge {
   </div>
   `
 })
-@RouteConfig([
-  { path: '/', component: Home, name: 'Home', useAsDefault: true },
-  { path: '/about', component: About, name: 'About' },
-  { path: '/**', redirectTo: ['Home'] }
-])
 export class App {}
