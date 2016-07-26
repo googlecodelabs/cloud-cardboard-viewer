@@ -9,9 +9,9 @@
   1. In the dropdown menu at the top, select __Create a project__.
   1. Give your project a name
   1. Make note of the projectId, which might be different from the project name. The projectId is used in commands and configurations.
-1. [Enable billing](https://console.cloud.google.com/project/_/settings) for your project
-1. Enable the [Trace API](https://console.developers.google.com/project/_/apiui/apiview/trace/overview).
-1. Enable the [YouTube Data v3 API](https://console.developers.google.com/project/_/apiui/apiview/youtube/overview).
+1. [Enable billing](https://console.cloud.google.com/billing) for your project
+1. Enable the [Stackdriver Trace API](https://console.developers.google.com/apis/api/cloudtrace.googleapis.com/overview).
+1. Enable the [YouTube Data API c3](https://console.developers.google.com/apis/api/youtube/overview).
 1. Create an API Key.
 
 ## Run locally
@@ -19,7 +19,7 @@
 1. `git clone https://github.com/googlecodelabs/cloud-cardboard-viewer.git`
 1. `cd cloud-cardboard-viewer`
 1. `npm install`
-1. `API_KEY=<your-api-key> npm start`
+1. `API_KEY=<your-api-key> GCLOUD_PROJECT=<your-project-id> npm start`
 
 View the app at http://localhost:8080.
 
@@ -27,8 +27,8 @@ View the app at http://localhost:8080.
 
 ### Deploy your local app
 
-1. Add the `GCLOUD_PROJECT` and `API_KEY` environment variables to the `app.yaml` file.
-1. `gcloud preview app deploy`
+1. Set the `GCLOUD_PROJECT` and `API_KEY` environment variables in the `app.yaml` file.
+1. Run `gcloud app deploy`.
 
 First deployment may take a while as your load balancer needs to be created.
 

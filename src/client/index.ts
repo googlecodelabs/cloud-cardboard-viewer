@@ -18,19 +18,21 @@ import 'es6-promise';
 import '../../node_modules/zone.js/dist/zone'
 import 'reflect-metadata'
 
-import { bootstrap } from 'angular2/platform/browser';
-import { HTTP_PROVIDERS } from 'angular2/http';
-import { enableProdMode } from 'angular2/core';
-import {
-  ROUTER_PROVIDERS
-} from 'angular2/router'
+// Angular 2
+import {enableProdMode} from '@angular/core';
 
-import {App} from '../app/app.component';
-
+// enable prod for faster renders
 enableProdMode();
 
-bootstrap(App, [
-  ...ROUTER_PROVIDERS,
-  ...HTTP_PROVIDERS
-]);
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { provideRouter } from '@angular/router';
+import { HTTP_PROVIDERS } from '@angular/http';
 
+// Application
+import {App} from '../app/app.component';
+import {routes} from '../app/app.routes';
+
+bootstrap(App, [
+  ...HTTP_PROVIDERS,
+  provideRouter(routes)
+]);

@@ -23,12 +23,21 @@ module.exports = {
   module: {
     loaders: [
       // TypeScript
-      { test: /\.ts$/, loader: 'ts-loader' }
+      { test: /\.ts$/, loaders: ['ts-loader'] },
+      { test: /\.css$/, loader: 'raw-loader' },
+      { test: /\.json$/, loader: 'raw-loader' }
     ],
-    noParse: [
-      path.join(__dirname, 'zone.js', 'dist'),
-      path.join(__dirname, 'angular2', 'bundles')
-    ]
+    preLoaders: [
+      // needed to lower the filesize of angular due to inline source-maps
+      { test: /\.js$/, loader: 'source-map-loader' }
+    ],
+  },
+  node: {
+    global: true,
+    __dirname: true,
+    __filename: true,
+    process: true,
+    Buffer: false
   },
   output: {
     filename: 'index.js',
@@ -39,7 +48,7 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(true)
   ],
   resolve: {
-    extensions: ['', '.ts', '.js'],
+    extensions: ['', '.ts', '.js', '.json'],
     root: path.join(__dirname, '/src')
   },
   target: 'web'
