@@ -21,6 +21,8 @@ if (process.env.GCLOUD_PROJECT) {
   require('@google/cloud-debug');
 }
 
+var errorHandler = require('@google/cloud-errors')();
+
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -65,10 +67,12 @@ app.use('*', function (req, res) {
   });
 });
 
-// Basic error handler
-app.use(function (err, req, res) {
-  res.status(500).send((err && err.message) || 'Something broke!');
+// Basic error logger/handler
+app.use(function (err, req, res, next) {
+  res.status(500).send(err.message || 'Something broke!');
+  next(err || new Error('Something broke!'));
 });
+app.use(errorHandler.express);
 
 if (module === require.main) {
   // Start the server

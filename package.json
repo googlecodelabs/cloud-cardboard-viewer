@@ -29,6 +29,7 @@
     "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
     "@angular/router": "3.0.0-alpha.8",
     "@google/cloud-debug": "^0.8.3",
+    "@google/cloud-errors": "0.0.3",
     "@google/cloud-trace": "^0.5.5",
     "body-parser": "^1.15.2",
     "es6-promise": "^3.2.1",
