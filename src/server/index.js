@@ -13,15 +13,16 @@
 
 'use strict';
 
+var errorHandler;
+
 if (process.env.NODE_ENV === 'production') {
   require('@google/cloud-trace').start();
+  errorHandler = require('@google/cloud-errors')();
 }
 
 if (process.env.GCLOUD_PROJECT) {
   require('@google/cloud-debug');
 }
-
-var errorHandler = require('@google/cloud-errors')();
 
 var path = require('path');
 var express = require('express');
@@ -72,7 +73,9 @@ app.use(function (err, req, res, next) {
   res.status(500).send(err.message || 'Something broke!');
   next(err || new Error('Something broke!'));
 });
-app.use(errorHandler.express);
+if (process.env.NODE_ENV === 'production') {
+  app.use(errorHandler.express);
+}
 
 if (module === require.main) {
   // Start the server
