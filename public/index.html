@@ -1,4 +1,4 @@
-<!-- Copyright 2016, Google, Inc.
+<!-- Copyright 2017, Google, Inc.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,13 +20,22 @@ limitations under the License. -->
 
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-  <universal-styles></universal-styles>
+  <base href="/">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="//cdn.muicss.com/mui-0.5.3/css/mui.min.css" rel="stylesheet" type="text/css" />
-  <link href="/src/client/index.css" rel="stylesheet" type="text/css" />
+  <link href="./index.css" rel="stylesheet" type="text/css" />
 
-  <base href="/">
+  <!-- Polyfills for older browsers -->
+  <script src="https://unpkg.com/core-js/client/shim.min.js"></script>
+
+  <script src="https://unpkg.com/zone.js@0.7.4?main=browser"></script>
+  <script src="https://unpkg.com/reflect-metadata@0.1.8"></script>
+  <script src="https://unpkg.com/systemjs@0.19.39/dist/system.src.js"></script>
+  <script src="./system.config.js"></script>
+  <script>
+    System.import('app').catch(function(err){ console.error(err); });
+  </script>
 </head>
 <body>
   <app>
@@ -48,5 +57,4 @@ limitations under the License. -->
       </nav>
     </div>
   </footer>
-  <script src="/dist/client/index.js"></script>
 </body>
