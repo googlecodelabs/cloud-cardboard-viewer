@@ -19,7 +19,7 @@ var errorHandler;
 
 if (process.env.NODE_ENV === 'production') {
   require('@google/cloud-trace').start();
-  errorHandler = require('@google/cloud-errors')();
+  errorHandler = require('@google/cloud-errors').start();
 }
 
 if (process.env.GCLOUD_PROJECT) {
