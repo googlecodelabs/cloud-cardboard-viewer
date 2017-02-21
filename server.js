@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (process.env.GCLOUD_PROJECT) {
-  require('@google/cloud-debug').start();
+  require('@google-cloud/debug-agent').start();
 }
 
 var path = require('path');

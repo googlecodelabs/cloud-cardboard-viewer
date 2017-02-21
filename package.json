@@ -1,9 +1,9 @@
 {
-  "name": "cardboard-viewer",
+  "name": "cloud-cardboard-viewer",
   "description": "Angular2 and Node.js Cardboard video viewer.",
   "version": "0.1.0",
   "private": true,
-  "license": "Apache Version 2.0",
+  "license": "Apache-2.0",
   "author": "Google Inc.",
   "repository": {
     "type": "git",
@@ -13,11 +13,11 @@
     "Jason Dobry <jason.dobry@gmail.com>"
   ],
   "dependencies": {
-    "@google/cloud-debug": "0.9.1",
+    "@google-cloud/debug-agent": "0.10.2",
     "@google/cloud-errors": "0.1.1",
-    "@google/cloud-trace": "0.6.0",
-    "body-parser": "1.16.0",
-    "express": "4.14.0",
+    "@google/cloud-trace": "0.6.2",
+    "body-parser": "1.16.1",
+    "express": "4.14.1",
     "googleapis": "16.1.0"
   },
   "engines": {

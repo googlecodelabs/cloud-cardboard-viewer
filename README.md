@@ -11,7 +11,7 @@
 1. [Enable billing](https://console.cloud.google.com/billing) for your project
 1. Enable the [YouTube Data API c3](https://console.developers.google.com/apis/api/youtube/overview).
 1. Create an API key.
-1. Install the [Google Cloud SDK][sdk].
+1. Install the [Google Cloud SDK](https://cloud.google.com/sdk/).
 
 ## Run locally
 
@@ -28,6 +28,11 @@
         npm install
 
 1. Start the server:
+
+        export API_KEY=YOUR_API_KEY
+        npm start
+
+    or
 
         API_KEY=YOUR_API_KEY npm start
 
